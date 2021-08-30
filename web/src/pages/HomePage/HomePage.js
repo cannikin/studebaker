@@ -1,9 +1,18 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import { useAuth } from '@redwoodjs/auth'
 
 const HomePage = () => {
+  const { currentUser, logOut } = useAuth()
+
   return (
     <>
+      <div>currentUser: {JSON.stringify(currentUser)}</div>
+      <div>
+        <button type="button" onClick={logOut}>
+          Logout
+        </button>
+      </div>
       <MetaTags
         title="Home"
         // description="Home description"
