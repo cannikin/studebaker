@@ -1,0 +1,18 @@
+diff --git a/node_modules/@redwoodjs/auth/dist/authClients/dbAuth.js b/node_modules/@redwoodjs/auth/dist/authClients/dbAuth.js
+index 076bdad..40b2352 100644
+--- a/node_modules/@redwoodjs/auth/dist/authClients/dbAuth.js
++++ b/node_modules/@redwoodjs/auth/dist/authClients/dbAuth.js
+@@ -16,7 +16,12 @@ const dbAuth = () => {
+   const getToken = async () => {
+     const response = await fetch(`${global.__REDWOOD__API_PROXY_PATH}/auth?method=getToken`);
+     const token = await response.text();
+-    return token;
++
++    if (token.length < 1) {
++      return null
++    } else {
++      return token
++    }
+   };
+ 
+   const login = async attributes => {
