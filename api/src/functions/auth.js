@@ -66,8 +66,8 @@ export const handler = async (event, context) => {
   })
 
   const result = await authHandler.invoke()
-  console.info('before', typeof result.body)
-  result.body = JSON.stringify(result.body)
-  console.info('after', typeof result.body)
+  // console.info('before', typeof result.body)
+  // result.body = JSON.stringify(result.body)
+  // console.info('after', typeof result.body)
   return result
 }
