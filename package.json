@@ -17,5 +17,8 @@
   "engines": {
     "node": "14.x",
     "yarn": "1.x"
+  },
+  "dependencies": {
+    "patch-package": "^6.4.7"
   }
 }
