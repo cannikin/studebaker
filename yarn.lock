@@ -2413,7 +2413,7 @@
     pino-pretty "5.1.3"
     uuid "8.3.2"
 
-"@redwoodjs/auth@0.36.2":
+"@redwoodjs/auth@0.36.2", "@redwoodjs/auth@^0.36.2":
   version "0.36.2"
   resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.36.2.tgz#86fc2611a50fff8929f9d5c2a5ed5f7c54b5e8c7"
   integrity sha512-iXjclf3C09+3CUsbyVpYBY96wboqOjzcvoAt4WbidUGh80W9mRLKYw1cDvaodRnWuQjB14A/33KOuqUtKVw8zw==
