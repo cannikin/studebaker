@@ -65,9 +65,5 @@ export const handler = async (event, context) => {
     loginExpires: 60 * 60 * 24 * 365 * 10,
   })
 
-  const result = await authHandler.invoke()
-  // console.info('before', typeof result.body)
-  // result.body = JSON.stringify(result.body)
-  // console.info('after', typeof result.body)
-  return result
+  return authHandler.invoke()
 }
