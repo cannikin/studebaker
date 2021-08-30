@@ -1,0 +1,22 @@
+diff --git a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
+index db272de..9a4c11a 100644
+--- a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
++++ b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
+@@ -221,10 +221,14 @@ class DbAuthHandler {
+ 
+ 
+   _parseBody() {
+-    if (this.event.isBase64Encoded) {
+-      return JSON.parse(Buffer.from(this.event.body || '', 'base64').toString('utf-8'));
++    if (this.event.body) {
++      if (this.event.isBase64Encoded) {
++        return JSON.parse(Buffer.from(this.event.body || '','base64').toString('utf-8'));
++      } else {
++        return this.event.body && JSON.parse(this.event.body);
++      }
+     } else {
+-      return this.event.body && JSON.parse(this.event.body);
++      return {}
+     }
+   } // returns all the cookie attributes in an array with the proper expiration date
+   //
