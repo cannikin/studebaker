@@ -1,5 +1,5 @@
 diff --git a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
-index db272de..3aaaba6 100644
+index db272de..f8548df 100644
 --- a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
 +++ b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
 @@ -131,11 +131,19 @@ class DbAuthHandler {
@@ -22,14 +22,25 @@ index db272de..3aaaba6 100644
          return this._badRequest(e.message || e);
        }
      }
-@@ -221,6 +229,10 @@ class DbAuthHandler {
+@@ -221,10 +229,18 @@ class DbAuthHandler {
  
  
    _parseBody() {
+-    if (this.event.isBase64Encoded) {
+-      return JSON.parse(Buffer.from(this.event.body || '', 'base64').toString('utf-8'));
 +    console.info("isBase64Encoded", this.event.isBase64Encoded)
 +    console.info("body", this.event.body)
 +    console.info("decoded body", Buffer.from(this.event.body || '', 'base64').toString('utf-8'))
 +
-     if (this.event.isBase64Encoded) {
-       return JSON.parse(Buffer.from(this.event.body || '', 'base64').toString('utf-8'));
++    if (this.event.body) {
++      if (this.event.isBase64Encoded) {
++        return JSON.parse(Buffer.from(this.event.body || '','base64').toString('utf-8'));
++      } else {
++        return this.event.body && JSON.parse(this.event.body);
++      }
      } else {
+-      return this.event.body && JSON.parse(this.event.body);
++      return {}
+     }
+   } // returns all the cookie attributes in an array with the proper expiration date
+   //
