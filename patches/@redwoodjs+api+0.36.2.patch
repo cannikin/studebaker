@@ -1,14 +1,14 @@
 diff --git a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
-index db272de..38ca599 100644
+index db272de..54e87a0 100644
 --- a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
 +++ b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
 @@ -221,6 +221,10 @@ class DbAuthHandler {
  
  
    _parseBody() {
-+    console.info("isBase64Encoded", this.event.isBase64Encoded)
-+    console.info("body", this.event.body)
-+    console.info("decoded body", Buffer.from(this.event.body || '', 'base64').toString('utf-8'))
++    console.warn("isBase64Encoded", this.event.isBase64Encoded)
++    console.warn("body", this.event.body)
++    console.warn("decoded body", Buffer.from(this.event.body || '', 'base64').toString('utf-8'))
 +
      if (this.event.isBase64Encoded) {
        return JSON.parse(Buffer.from(this.event.body || '', 'base64').toString('utf-8'));
