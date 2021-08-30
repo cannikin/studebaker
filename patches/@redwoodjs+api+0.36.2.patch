@@ -1,0 +1,13 @@
+diff --git a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
+index db272de..e4ba5b2 100644
+--- a/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
++++ b/node_modules/@redwoodjs/api/dist/functions/dbAuth/DbAuthHandler.js
+@@ -403,7 +403,7 @@ class DbAuthHandler {
+   }) {
+     return {
+       statusCode: options.statusCode,
+-      body,
++      body: JSON.stringify(body),
+       headers: {
+         'Content-Type': 'application/json',
+         ...headers
